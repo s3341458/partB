@@ -30,9 +30,9 @@
       <div id="icon">&nbsp;</div>
       <form action="represent.php" method="post" name="queryform">
         <table width="100%">
-          <tr><td colspan="2" align="center">winename:<input class="text" name="winename" type="text" /></td></tr>
-		  <tr><td colspan="2" align="center">winery name:<input class="text" name="winery_name" type="text" /></td></tr>
-		  <tr><td colspan="2" align="center">region:
+          <tr><td colspan="2" align="left">winename:<input class="text" name="winename" type="text" /></td></tr>
+		  <tr><td colspan="2" align="left">winery name:<input class="text" name="winery_name" type="text" /></td></tr>
+		  <tr><td colspan="2" align="left">region:
 		  <select value="region_name"  >
 			<?php
 			while($row = mysql_fetch_row($result_region)) 
@@ -45,7 +45,7 @@
 		  </select>
 		  </td></tr>
 		  
-		  <tr><td colspan="2" align="center">grape:
+		  <tr><td colspan="2" align="left">grape:
 		  <select value="grape_name"  >
 			<?php
 			while($row = mysql_fetch_row($result_grape)) 
@@ -59,7 +59,7 @@
 		  </td></tr>
 		  
         <tr>
-		  <td colspan="1" align="center">year_lower_bound:
+		  <td colspan="1" align="left">year_lower_bound:
 		  <select value="year_lower_bound"  >
 			<?php
 			while($row = mysql_fetch_row($result_year)) 
@@ -71,7 +71,7 @@
 		  </select>
 		  
 		  </td>
-		  <td colspan="1" align="center">year_upper_bound:
+		  <td colspan="1" align="left">year_upper_bound:
 		  <select value="year_upper_bound"  >
 			<?php
 			reset($result_year);
@@ -84,10 +84,10 @@
 		  </select>
 		  </td>
 		</tr>
-		  <tr><td colspan="1" align="center">cost(lower bound):<input class="text" name="cost_lower_bound" type="text" /></td>
-		      <td colspan="1" align="center">cost(higher bound):<input class="text" name="cost_higher_bound" type="text" /></td></tr>
+		  <tr><td colspan="1" align="left">cost(lower bound):<input class="text" name="cost_lower_bound" type="text" /></td>
+		      <td colspan="1" align="left">cost(higher bound):<input class="text" name="cost_higher_bound" type="text" /></td></tr>
 		  
-		  <tr><td colspan="2" align="center"><input class="text" type="submit" name="query" value="query" /></td></tr>
+		  <tr><td colspan="2" align="left"><input class="text" type="submit" name="query" value="query" /></td></tr>
           
         </table>  
       </form>
