@@ -12,7 +12,7 @@
 	
 	$show_grape_query = "select * from grape_variety;";
 	
-	$show_year_query = "select distinct year from wine";
+	$show_year_query = "select distinct year from wine order by year";
 	
 	
 	
@@ -21,6 +21,15 @@
 	$result_grape = mysql_query($show_grape_query, $db_connection);
 	
 	$result_year = mysql_query($show_year_query, $db_connection);
+	
+	$years = array();
+	
+	$i = 0;
+	while($row = mysql_fetch_row($result_year))
+	{
+	  $years[$i] = $row[0];
+	  $i++;
+	}
 ?>
 
 <body>
@@ -29,7 +38,7 @@
       <div class="caption">query</div>
       <div id="icon">&nbsp;</div>
       <form action="represent.php" method="post" name="queryform">
-        <table width="100%">
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0" align="center">
           <tr><td colspan="2" align="left">winename:<input class="text" name="winename" type="text" /></td></tr>
 		  <tr><td colspan="2" align="left">winery name:<input class="text" name="winery_name" type="text" /></td></tr>
 		  <tr><td colspan="2" align="left">region:
@@ -62,11 +71,8 @@
 		  <td colspan="1" align="left">year_lower_bound:
 		  <select value="year_lower_bound"  >
 			<?php
-			while($row = mysql_fetch_row($result_year)) 
-			{
-				  $year = $row[0];
-				  echo "<option value=".$year."> ".$year." </option>";
-			}
+			for($i = 0;$i<count($years);$i++)
+				  echo "<option value=".$years[$i]."> ".$years[$i]." </option>";
             ?>
 		  </select>
 		  
@@ -74,12 +80,9 @@
 		  <td colspan="1" align="left">year_upper_bound:
 		  <select value="year_upper_bound"  >
 			<?php
-			reset($result_year);
-			while($row = mysql_fetch_row($result_year)) 
-			{
-				  $year = $row[0];
-				  echo "<option value=".$year."> ".$year." </option>";
-			}
+			for($i = 0;$i<count($years);$i++)
+				  echo "<option value=".$years[$i]."> ".$years[$i]." </option>";
+			
             ?>
 		  </select>
 		  </td>
