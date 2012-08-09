@@ -14,11 +14,13 @@
 	
 	$show_year_query = "select distinct year from wine";
 	
-	$result_region = mysql_query($show_region_query, $dbconn);
 	
-	$result_grape =  mysql_query($show_grape_query, $dbconn);
 	
-	$result_year =
+	$result_region = mysql_query($show_region_query, $db_connection);
+	
+	$result_grape = mysql_query($show_grape_query, $db_connection);
+	
+	$result_year = mysql_query($show_year_query, $db_connection);
 ?>
 
 <body>
@@ -56,20 +58,41 @@
 		  </select>
 		  </td></tr>
 		  
-		  <tr><td colspan="2" align="center">name(optional):<input class="text" name="NAME" type="text" /></td></tr>
-		  <tr><td colspan="2" align="center">address(optional):<input class="text" name="ADDRESS" type="text" /></td></tr>
-		  <tr><td colspan="2" align="center">city(optional):<input class="text" name="CITY" type="text" /></td></tr>
-		  <tr><td colspan="2" align="center">state(optional):<input class="text" name="STATE" type="text" /></td></tr>
-		  <tr><td colspan="2" align="center">zip(optional):<input class="text" name="ZIP" type="text" /></td></tr>
-		  <tr><td colspan="2" align="center">cvv(optional):<input class="text" name="CVV" type="text" /></td></tr>
+        <tr>
+		  <td colspan="1" align="center">year_lower_bound:
+		  <select value="year_lower_bound"  >
+			<?php
+			while($row = mysql_fetch_row($result_year)) 
+			{
+				  $year = $row[0];
+				  echo "<option value=".$year."> ".$year." </option>";
+			}
+            ?>
+		  </select>
 		  
+		  </td>
+		  <td colspan="1" align="center">year_upper_bound:
+		  <select value="year_upper_bound"  >
+			<?php
+			reset($result_year);
+			while($row = mysql_fetch_row($result_year)) 
+			{
+				  $year = $row[0];
+				  echo "<option value=".$year."> ".$year." </option>";
+			}
+            ?>
+		  </select>
+		  </td>
+		</tr>
+		  <tr><td colspan="1" align="center">cost(lower bound):<input class="text" name="cost_lower_bound" type="text" /></td>
+		      <td colspan="1" align="center">cost(higher bound):<input class="text" name="cost_higher_bound" type="text" /></td></tr>
 		  
-          <tr><td colspan="2" align="center"><input class="text" type="submit" name="submit" value="pay" /></td></tr>
+		  <tr><td colspan="2" align="center"><input class="text" type="submit" name="query" value="query" /></td></tr>
+          
         </table>  
       </form>
       
-	  &nbsp;<a href="client.php">back</a></br>
-      &nbsp;<a href="logoutClient.php">Logout</a>
+	  
 	  </br>
         
 	   
