@@ -41,7 +41,8 @@
         <table width="100%"  border="0" cellspacing="0" cellpadding="0" align="center">
           <tr><td colspan="2" align="left">winename:<input class="text" name="winename" type="text" /></td></tr>
 		  <tr><td colspan="2" align="left">winery name:<input class="text" name="winery_name" type="text" /></td></tr>
-		  <tr><td colspan="2" align="left">region:
+		  <tr>
+		  <td colspan="2" align="left">region:
 		  <select value="region_id" name = "region_id" id = "region_id" >
 			<?php
 			while($row = mysql_fetch_row($result_region)) 
@@ -52,7 +53,8 @@
 			}
             ?>
 		  </select>
-		  </td></tr>
+		  </td>
+		  </tr>
 		  
 		  <tr><td colspan="2" align="left">grape:
 		  <select value="grape_variety_id" name="grape_variety_id" id="grape_variety_id" >
@@ -65,7 +67,8 @@
 			}
             ?>
 		  </select>
-		  </td></tr>
+		  </td>
+		  </tr>
 		  
         <tr>
 		  <td colspan="1" align="left">year_lower_bound:

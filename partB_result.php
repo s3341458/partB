@@ -136,7 +136,7 @@
 		  
 		  <?php
              $row = mysql_fetch_row($result);
-		     if(!$row)echo "no match record";
+		     if(!$row)echo "no record match your search criteria ";
 			 
 			do 
 			{
