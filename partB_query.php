@@ -78,7 +78,7 @@
 		  
 		  </td>
 		  <td colspan="1" align="left">year_upper_bound:
-		  <select value="year_upper_bound" name="year_upper_bound" id="year_upper_bound" >
+		  <select value="year_higher_bound" name="year_higher_bound" id="year_higher_bound" >
 			<?php
 			for($i = 0;$i<count($years);$i++)
 				  echo "<option value=\"".$years[$i]."\"> ".$years[$i]." </option>";
@@ -99,12 +99,12 @@
       </form>
       
 	  
-	  </br>
-        
-	   
-	   
-   
-	  
+	  </br>  
 	  
 </body>
 </html>
+
+<?php
+    mysql_close( $db_connection);
+    echo error_get_last();
+?>
