@@ -42,7 +42,7 @@
           <tr><td colspan="2" align="left">winename:<input class="text" name="winename" type="text" /></td></tr>
 		  <tr><td colspan="2" align="left">winery name:<input class="text" name="winery_name" type="text" /></td></tr>
 		  <tr><td colspan="2" align="left">region:
-		  <select value="region_name" name = "region_name" id = "region_name" >
+		  <select value="region_id" name = "region_id" id = "region_id" >
 			<?php
 			while($row = mysql_fetch_row($result_region)) 
 			{
@@ -55,7 +55,7 @@
 		  </td></tr>
 		  
 		  <tr><td colspan="2" align="left">grape:
-		  <select value="grape_name" name="grape_name" id="grape_name" >
+		  <select value="grape_variety_id" name="grape_variety_id" id="grape_variety_id" >
 			<?php
 			while($row = mysql_fetch_row($result_grape)) 
 			{
@@ -89,6 +89,9 @@
 		</tr>
 		  <tr><td colspan="1" align="left">cost(lower bound):<input class="text" name="cost_lower_bound" type="text" /></td>
 		      <td colspan="1" align="left">cost(higher bound):<input class="text" name="cost_higher_bound" type="text" /></td></tr>
+		  <tr><td colspan="1" align="left">minium number in stock:<input class="text" name="min_num_in_stock" type="text" /></td>
+		      <td colspan="1" align="left">minium number ordered :<input class="text" name="min_num_ordered" type="text" /></td></tr>  
+			  
 		  
 		  <tr><td colspan="2" align="left"><input class="text" type="submit" name="search" value="query" /></td></tr>
           
