@@ -9,7 +9,7 @@
   $cost_higher_bound = $_GET["cost_higher_bound"];
   $min_num_in_stock = $_GET["min_num_in_stock"];
   $min_num_ordered = $_GET["min_num_ordered"];
- 
+ /*
   print_r($_GET);
   echo "winename:".$winename."</br>" ;
   echo "winery_name:".$winery_name."</br>" ;
@@ -21,6 +21,7 @@
   echo "cost_higher_bound:".$cost_higher_bound."</br>" ;
   echo "min_num_ordered:".$min_num_ordered."</br>";
   echo "min_num_in_stock:".$min_num_in_stock."</br>";
+  */
    $db_connection = mysql_connect('yallara.cs.rmit.edu.au:51355', 'winestore', '123');
    mysql_select_db("winestore", $db_connection);
    
@@ -101,7 +102,7 @@
 	
     $result = mysql_query($search_statement, $db_connection);
 	
-	echo $search_statement."</br>";
+	//echo $search_statement."</br>";
 	
 	if(!$result) {
         echo "wrong search statement </br>";

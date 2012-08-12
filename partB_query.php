@@ -2,6 +2,93 @@
 <html>
 <head>
    <title>query System</title>
+   
+    <script type="text/javascript">
+   
+    
+    /*
+    function is_number(text)
+    { 
+	  var pattern_number = new RegExp("\d*"); 
+	  if(pattern_number.test(text) == false)
+	  {
+	     alert(text + "is not a number");
+		 return false;
+	  }
+	  
+	  return true;
+	}	
+	*/
+ 
+    
+ 
+	function validate_form(thisform)
+	{	
+	     var pattern_number = new RegExp("^[0-9]*$");
+	   
+		// alert(""+thisform.cost_lower_bound.value);
+		 
+		 if(pattern_number.test(thisform.cost_lower_bound.value) == false)
+	     {
+	     alert(thisform.cost_lower_bound.value + " is not a number");
+		 return false;
+	     }
+		 
+		 if(pattern_number.test(thisform.cost_higher_bound.value) == false)
+	     {
+	     alert(thisform.cost_higher_bound.value + " is not a number");
+		 return false;
+	     }
+		 
+		 if(pattern_number.test(thisform.min_num_in_stock.value) == false)
+	     {
+	     alert(thisform.min_num_in_stock.value + " is not a number");
+		 return false;
+	     }
+		 
+		 if(pattern_number.test(thisform.min_num_ordered.value) == false)
+	     {
+	     alert(thisform.min_num_ordered.value + " is not a number");
+		 return false;
+	     }
+		  
+		  /*
+		  if(is_number(thisform.cost_lower_bound.value) == false){return false;}
+		  
+		 
+		  if(is_number(thisform.cost_higher_bound.value) == false){return false;}
+		  
+		  if(is_number(thisform.min_num_in_stock.value) == false){return false;}
+		  
+		  if(is_number(thisform.min_num_ordered.value) == false){return false;}
+		*/
+		  if(parseInt(thisform.year_lower_bound.value) > parseInt(thisform.year_higher_bound.value))
+		  {
+		   alert("lower bound year should lower than higher bound year ");
+		   return false;
+		  }
+		  
+		  if(parseInt(thisform.cost_lower_bound.value) > parseInt(thisform.cost_higher_bound.value))
+		  {
+		   alert("lower bound price should lower than higher bound price ");
+		   return false;
+		  }
+       
+		
+		
+		
+		//document.write("test!!");
+		
+		//alert("test");
+		//alert("11"+cost_lower_bound + " "+cost_higher_bound + " "+min_num_in_stock + " "+min_num_in_stock + " " + min_num_ordered + " ");
+		//alert(""+thisform.cost_lower_bound.value);
+		
+		return true;
+		
+	}
+	
+	</script>
+
 </head>
 <?php
     $db_connection = mysql_connect('yallara.cs.rmit.edu.au:51355', 'winestore', '123');
@@ -35,10 +122,10 @@
 <body>
     <div id="main">
 
-      <div class="caption">query</div>
+      <div class="caption">search page</div>
       <div id="icon">&nbsp;</div>
-      <form action="partB_result.php" method="get" name="searchform">
-        <table width="100%"  border="0" cellspacing="0" cellpadding="0" align="center">
+      <form action="partB_result.php" method="get" name="searchform" onsubmit = "return validate_form(this)">
+        <table  border="0" cellspacing="0" cellpadding="0" align="center">
           <tr><td colspan="2" align="left">winename:<input class="text" name="winename" type="text" /></td></tr>
 		  <tr><td colspan="2" align="left">winery name:<input class="text" name="winery_name" type="text" /></td></tr>
 		  <tr>
@@ -96,7 +183,7 @@
 		      <td colspan="1" align="left">minium number ordered :<input class="text" name="min_num_ordered" type="text" /></td></tr>  
 			  
 		  
-		  <tr><td colspan="2" align="left"><input class="text" type="submit" name="search" value="query" /></td></tr>
+		  <tr><td colspan="2" align="center"><input class="text" type="submit" name="search" value="search" /></td></tr>
           
         </table>  
       </form>
