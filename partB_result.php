@@ -25,7 +25,7 @@
    $db_connection = mysql_connect('yallara.cs.rmit.edu.au:51355', 'winestore', '123');
    mysql_select_db("winestore", $db_connection);
    
-   $search_statement = "SELECT  wine.wine_name,grape_variety.variety,wine.year,winery.winery_name,region.region_name,inventory.cost,sum(items.qty) qty,sum(items.price)
+   $search_statement = "SELECT  wine.wine_name,grape_variety.variety,wine.year,winery.winery_name,region.region_name,inventory.cost,on_hand,sum(items.qty) qty,sum(items.price)
 						FROM wine,wine_variety,grape_variety,winery,region,inventory,items
 						WHERE wine.wine_id = wine_variety.wine_id 
 						AND wine_variety.variety_id = grape_variety.variety_id 
@@ -60,7 +60,7 @@
     {
 	 $search_statement = $search_statement.$winery_name_restriction;
 	}
-	if($region_id != '')
+	if($region_id != '' && $region_id != '1')
     {
 	 $search_statement = $search_statement.$region_id_restriction;
 	}	
@@ -98,7 +98,7 @@
 	
 	$search_statement = $search_statement." ORDER BY wine.wine_name,grape_variety.variety,wine.year ";
 	
-	$search_statement = $search_statement." LIMIT 5 ";
+	/*$search_statement = $search_statement." LIMIT 5 ";*/
 	
     $result = mysql_query($search_statement, $db_connection);
 	
@@ -131,6 +131,7 @@
 		   <td> winery name </td>
 		   <td> region </td>
 		   <td> price </td>
+		   <td> on hand </td>
 		   <td> sold </td>
 		   <td> revenue </td>
 		   </tr>
