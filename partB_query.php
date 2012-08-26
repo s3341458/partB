@@ -3,9 +3,7 @@
 <head>
    <title>query System</title>
    
-    <script type="text/javascript">
-   
-    
+    <script type="text/javascript"> 
     /*
     function is_number(text)
     { 
@@ -19,9 +17,6 @@
 	  return true;
 	}	
 	*/
- 
-    
- 
 	function validate_form(thisform)
 	{	
 	     var pattern_number = new RegExp("^[0-9]*$");
@@ -91,22 +86,18 @@
 
 </head>
 <?php
-    $db_connection = mysql_connect('yallara.cs.rmit.edu.au:51355', 'winestore', '123');
+    $db_connection = mysql_connect('yallara.cs.rmit.edu.au:51535', 'winestore', '123');
 	
 	mysql_select_db("winestore", $db_connection);
 	
 	$show_region_query = "select * from region;";
-	
 	$show_grape_query = "select * from grape_variety;";
-	
 	$show_year_query = "select distinct year from wine order by year";
 	
 	
 	
 	$result_region = mysql_query($show_region_query, $db_connection);
-	
-	$result_grape = mysql_query($show_grape_query, $db_connection);
-	
+	$result_grape = mysql_query($show_grape_query, $db_connection);	
 	$result_year = mysql_query($show_year_query, $db_connection);
 	
 	$years = array();
@@ -187,10 +178,7 @@
           
         </table>  
       </form>
-      
-	  
-	  </br>  
-	  
+	  </br>  	  
 </body>
 </html>
 

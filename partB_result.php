@@ -22,7 +22,7 @@
   echo "min_num_ordered:".$min_num_ordered."</br>";
   echo "min_num_in_stock:".$min_num_in_stock."</br>";
   */
-   $db_connection = mysql_connect('yallara.cs.rmit.edu.au:51355', 'winestore', '123');
+   $db_connection = mysql_connect('yallara.cs.rmit.edu.au:51535', 'winestore', '123');
    mysql_select_db("winestore", $db_connection);
    
    $search_statement = "SELECT  wine.wine_name,grape_variety.variety,wine.year,winery.winery_name,region.region_name,inventory.cost,on_hand,sum(items.qty) qty,sum(items.price)
@@ -138,8 +138,7 @@
 		  
 		  <?php
              $row = mysql_fetch_row($result);
-		     if(!$row)echo "no record match your search criteria ";
-			 
+		     if(!$row)echo "NO fetch data ";
 			do 
 			{
 			  echo "<tr>";
@@ -154,15 +153,8 @@
 			  //echo  "<br> </br>"
 			  echo "</tr>"; 
 			}while($row = mysql_fetch_row($result))
-           ?>
-          
-        </table>  
-      
-      
-	  
-	  </br>
-  
-	  
+           ?>  
+        </table>   
 </body>
 </html>
 
